@@ -119,12 +119,15 @@ const Main = () => {
           
 
         <main className="
-        my-8 mx-auto max-w-7xl border
+        my-8 mx-auto max-w-7xl
+        p-2
         ">
             
 
             <div
-            className="border-b-2 border-gray-300"
+
+            className="rounded-lg border border-gray-300 shadow-lg"
+            
             >
                
                     <form
