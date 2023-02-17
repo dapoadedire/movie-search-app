@@ -37,8 +37,7 @@ const MovieDetails = () => {
             Back to home
           </button>
         </Link>
-        <div
-          className="my-8 space-y-8 px-4 md:flex md:flex-row md:space-x-8 md:space-y-0">
+        <div className="my-8 space-y-8 px-4 md:flex md:flex-row md:space-x-8 md:space-y-0">
           <div className="md:w-1/2">
             <img
               src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}

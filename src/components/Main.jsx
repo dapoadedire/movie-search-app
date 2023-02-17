@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Movies from "./Movies";
-import MoviesNotFound from "./NoResults";
+import MoviesNotFound from "./MoviesNotFound";
 import { genres } from "../utils/genres";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -108,58 +108,54 @@ const Main = () => {
         font-mono
         "
     >
-     
+      <div className="rounded-lg my-4 flex flex-wrap items-center justify-between gap-4 border border-gray-400 p-4">
+        <form className="flex flex-wrap gap-4" onSubmit={handleOnSubmit}>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="grow border border-gray-300 p-2 text-sm"
+            placeholder="Search for a movie"
+          />
+          <button
+            type="submit"
+            className="rounded-md bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700"
+          >
+            Search
+          </button>
+        </form>
 
-          <div className="rounded-lg my-4 flex flex-wrap items-center justify-between gap-4 border border-gray-400 p-4">
-              <form className="flex flex-wrap gap-4" onSubmit={handleOnSubmit}>
-                  <input
-                      type="text"
-                      name="search"
-                      id="search"
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      className="grow border border-gray-300 p-2 text-sm"
-                      placeholder="Search for a movie"
-                  />
-                  <button
-                      type="submit"
-                      className="rounded-md bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700"
-                  >
-                      Search
-                  </button>
-              </form>
+        <form className="flex flex-wrap gap-4" onSubmit={filterMovies}>
+          <select
+            name="genre"
+            id="genre"
+            onChange={setGenre}
+            className="cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
+          >
+            <option value="">Genre</option>
+            {genreList}
+          </select>
 
-              <form className="flex flex-wrap gap-4" onSubmit={filterMovies}>
-                  <select
-                      name="genre"
-                      id="genre"
-                      onChange={setGenre}
-                      className="cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
-                  >
-                      <option value="">Genre</option>
-                      {genreList}
-                  </select>
+          <select
+            name="year"
+            id="year"
+            onChange={setYear}
+            className="cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
+          >
+            <option value="">Release Date</option>
+            {yearList}
+          </select>
 
-                  <select
-                      name="year"
-                      id="year"
-                      onChange={setYear}
-                      className="cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
-                  >
-                      <option value="">Release Date</option>
-                      {yearList}
-                  </select>
-
-                  <button
-                      type="submit"
-                      className="rounded-md bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700"
-                  >
-                      Filter
-                  </button>
-              </form>
-          </div>
-
-    
+          <button
+            type="submit"
+            className="rounded-md bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700"
+          >
+            Filter
+          </button>
+        </form>
+      </div>
 
       <p></p>
       <div>
