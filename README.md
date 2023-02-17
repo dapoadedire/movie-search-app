@@ -6,11 +6,11 @@ This is a React application that allows users to search for movies using the The
 
 To run this application locally, you will need to have Node.js and npm installed on your computer.
 
-- Clone this repository:```git clone <https://github.com/dapoadedire/movie-search.git>```
+- Clone this repository:`git clone <https://github.com/dapoadedire/movie-search.git>`
 - Navigate to the project directory: `` `cd movie-search-app ```
-- Install dependencies: ```npm install```
+- Install dependencies: `npm install`
 - Create a .env.local file at the root of the project and add your TMDb API key as - VITE_API_KEY=<your_api_key>
-- Start the development server: ```npm run dev```
+- Start the development server: `npm run dev`
 
 The application should now be running at <http://localhost:3157>.
 
