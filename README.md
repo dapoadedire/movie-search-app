@@ -21,6 +21,18 @@ The application should now be running at <http://localhost:3157>.
 - Click "Filter" to apply the selected filters to the search results.
 - The search results will be displayed on the page, with the option to view more details about each movie.
 
+
+## Screenshots
+
+![localhost_5173_movie_842544 (1)](https://user-images.githubusercontent.com/95668340/219631454-dafa05da-5743-4edd-9f53-64c627055034.png)  ![localhost_5173_movie_842544](https://user-images.githubusercontent.com/95668340/219631488-ad64a3b7-8a64-4af1-897c-e08da21417a8.png)
+
+ 
+
+
+
+
+
+
 ## Credits
 
-This project was created by [Your Name Here] as part of [Course/Program Name]. It uses the The Movie Database (TMDb) API to retrieve movie data.
+This project was created by Dapo Adedire. It uses the The Movie Database (TMDb) API to retrieve movie data.
