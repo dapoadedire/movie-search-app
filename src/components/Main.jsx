@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Movies from "./Movies";
-import MoviesNotFound from "./MoviesNotFound";
+import Loading from "./Loading";
 import { genres } from "../utils/genres";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -12,12 +12,14 @@ const Main = () => {
   const [query, setQuery] = useState("");
   const [currentGenre, setCurrentGenre] = useState("");
   const [currentYear, setCurrentYear] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(POPULAR_API_URL)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
+        setIsLoading(false);
       });
   }, []);
 
@@ -30,6 +32,7 @@ const Main = () => {
         .then((data) => {
           setMovies(data);
           setFilteredMovies([]);
+          setIsLoading(false);
         });
     }
   };
@@ -108,15 +111,22 @@ const Main = () => {
         font-mono
         "
     >
-      <div className="rounded-lg my-4 flex flex-wrap items-center justify-between gap-4 border border-gray-400 p-4">
-        <form className="flex flex-wrap gap-4" onSubmit={handleOnSubmit}>
+      <div className="my-4 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-gray-400 p-4">
+        <form
+          className="flex w-full flex-wrap
+        justify-end gap-4 md:w-auto
+        "
+          onSubmit={handleOnSubmit}
+        >
           <input
             type="text"
             name="search"
             id="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="grow border border-gray-300 p-2 text-sm"
+            className=" first-letter: grow rounded-lg border border-gray-300 p-2 text-sm
+            
+            "
             placeholder="Search for a movie"
           />
           <button
@@ -127,12 +137,17 @@ const Main = () => {
           </button>
         </form>
 
-        <form className="flex flex-wrap gap-4" onSubmit={filterMovies}>
+        <form
+          className="flex w-full flex-wrap justify-end 
+        gap-4  md:w-auto
+        "
+          onSubmit={filterMovies}
+        >
           <select
             name="genre"
             id="genre"
             onChange={setGenre}
-            className="cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
+            className="grow cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
           >
             <option value="">Genre</option>
             {genreList}
@@ -142,7 +157,7 @@ const Main = () => {
             name="year"
             id="year"
             onChange={setYear}
-            className="cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
+            className="grow cursor-pointer rounded-md border border-gray-300 p-2 text-sm"
           >
             <option value="">Release Date</option>
             {yearList}
@@ -150,7 +165,9 @@ const Main = () => {
 
           <button
             type="submit"
-            className="rounded-md bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700"
+            className="rounded-md  bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700
+            
+            "
           >
             Filter
           </button>
@@ -158,13 +175,7 @@ const Main = () => {
       </div>
 
       <p></p>
-      <div>
-        {movies.results && movies.results.length > 0 ? (
-          <Movies movies={displayMovies} />
-        ) : (
-          <MoviesNotFound />
-        )}
-      </div>
+      <div>{isLoading ? <Loading /> : <Movies movies={displayMovies} />}</div>
     </main>
   );
 };
