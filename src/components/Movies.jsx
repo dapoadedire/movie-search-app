@@ -8,7 +8,7 @@ const Movies = ({ movies }) => {
     return (
 
         <div
-            className="grid grid-cols-1 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+            className="grid  grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4"
         >
 
             {
@@ -18,7 +18,7 @@ const Movies = ({ movies }) => {
                         <div key={movie.id}
 
                             className="flex w-full flex-col  items-center
-                            p-4
+                            border border-gray-300  p-2 hover:shadow-lg
                             "
                       
                         >
@@ -30,20 +30,23 @@ const Movies = ({ movies }) => {
                                 }
                                 alt={movie.title}
                                 className="mb-4 
-                                w-full
+                                
                                 rounded-none
-                                shadow-lg"
+                                shadow-lg
+                                sm:w-64 
+                                md:w-72
+                                lg:w-80"
                             />
                           
                            
 
                             <div
-                            className="flex flex-col items-center justify-center w-full"
+                            className="flex w-full flex-col items-center justify-center"
                             >
                                 <h2
                                     className="mb-2  
                                     
-                                    text-ellipsis text-sm font-medium "
+                                    text-ellipsis text-sm font-bold "
                                 >{movie.title}
                                 </h2>
                                 {/* <p className="
@@ -61,9 +64,9 @@ const Movies = ({ movies }) => {
 
 
                                 <p
-                                    className="mb-2 flex  flex-wrap justify-center text-ellipsis text-sm"
+                                    className="mb-2 flex  flex-wrap items-start text-ellipsis text-sm"
                                 >
-                                    Genres:
+                            
                                     {movie.genre_ids.map((genreId) => {
                                         return (
                                             <span
@@ -83,7 +86,7 @@ const Movies = ({ movies }) => {
                                 <p
                                     className="mb-2 text-ellipsis text-sm"
                                 >
-                                    Release Date: {movie.release_date}
+                               {movie.release_date}
                                 </p>
                             </div>
                             

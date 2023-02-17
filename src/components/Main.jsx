@@ -121,19 +121,27 @@ const Main = () => {
         <main className="
         my-8 mx-auto max-w-7xl
         p-2
+        font-mono
         ">
             
 
             <div
 
-            className="rounded-lg border border-gray-300 shadow-lg"
+            className="mb-4 flex flex-wrap
+             items-center justify-between gap-4 border
+                border-gray-400 p-4
+            
+            "
             
             >
                
                     <form
                         action=""
-                        className="mb-6 flex
-                    flex-wrap items-center justify-center gap-4 p-4
+                        className="
+                        flex 
+                    flex-wrap
+                        gap-4
+                    
                     "
                         onSubmit={handleOnSubmit}
                     >
@@ -143,25 +151,35 @@ const Main = () => {
                             id="search"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
-                            className="rounded-lg border border-gray-300 p-2"
+                            className="  grow border
+                            border-gray-300 
+                            p-2
+                            "
                         />
                         <button type="submit"
-                            className="rounded-lg bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+                            className=" bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
                         >Search</button>
                     </form>
 
                     <form action=""
                         onSubmit={filterMovies}
-                        className="mb-6 flex flex-wrap items-center justify-center gap-4 p-4">
+                        className="
+                        flex
+                        flex-wrap
+                    
+                        gap-4
+                        
+
+                        ">
 
                         <select name="genre" id="genre"
                             onChange={
                                 setGenre
                             }
-                            className="w-[150px] cursor-pointer rounded-lg border border-gray-300 p-2"
+                            className=" cursor-pointer border border-gray-300 p-2"
 
                         >
-                            <option value="">All</option>
+                            <option value="">Genre</option>
                             {genreList}
                         </select>
 
@@ -169,26 +187,31 @@ const Main = () => {
                             onChange={
                                 setYear
                             }
-                            className="w-[100px] cursor-pointer rounded-lg border
-                        border-gray-300 p-2
+                            className="  cursor-pointer
+                        border border-gray-300
+                        p-2
+
+                      
+                        
                         "
 
                         >
-                            <option value="">All</option>
+                            <option value="">Release Date</option>
                             {yearList}
 
                         </select>
 
-                        <button
-                            type="submit"
-                            className="rounded-lg bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
-                        >
-                            Filter
-                        </button>
+                    <button type="submit"
+                        className="
+                        
+                        bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+                    >
+                        Filter
+                    </button>
 
                     </form>
             </div>
-                <div
+                {/* <div
                     className="
                     mb-6 flex flex-wrap items-center justify-center gap-4 p-4
                     "
@@ -213,7 +236,7 @@ const Main = () => {
                                     : ""
                         }
                     </p>
-                </div>
+                </div> */}
 
 <p>
     
